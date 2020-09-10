@@ -4,6 +4,10 @@
              x:Class="HelloWorld.Views.SportsCarPage"
              Title="Samochody sportowe">
     <StackLayout Margin="0,30,0,0">
+        <Label Text="Samochody sportowe"
+               FontSize="20"
+               HorizontalOptions="Center"
+               Margin="0,0,0,20"/>
         <ListView HasUnevenRows="True" 
                   x:Name="CarListView"
                   ItemSelected="CarListView_ItemSelected">

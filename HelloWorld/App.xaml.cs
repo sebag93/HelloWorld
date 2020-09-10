@@ -13,10 +13,12 @@ namespace HelloWorld
         public App()
         {
             InitializeComponent();
-            SetMenuItem();
-            MainPage = new MasterDetailMainPage(MenuPages);
-            var masterPage = MainPage as MasterDetailMainPage;
-            masterPage.Detail = new NavigationPage((Page)Activator.CreateInstance(MenuPages[0].PageType));
+            //SetMenuItem();
+            //MainPage = new MasterDetailMainPage(MenuPages);
+            //var masterPage = MainPage as MasterDetailMainPage;
+            //masterPage.Detail = new NavigationPage((Page)Activator.CreateInstance(MenuPages[0].PageType));
+            //MainPage = new NavigationPage(new CarouselNavigationPage());
+            MainPage = new CarouselViewPage();
         }
 
         private void SetMenuItem()

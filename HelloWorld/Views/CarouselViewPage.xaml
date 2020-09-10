@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorld.Views.CarouselViewPage">
+    <StackLayout>
+        <CarouselView x:Name="CarouselViewControl"
+                      IndicatorView="IndicatorView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Name}"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Image Source="car_2.png"
+                               Aspect="Fill"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               HorizontalOptions="Center"/>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="20,5,20,0">
+                            <Label Text="Rok produkcji"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding Year}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="20,5,20,0">
+                            <Label Text="Kolor"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding Color}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="20,5,20,0">
+                            <Label Text="Cena"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding Price}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView x:Name="IndicatorView"
+                       Margin="0,0,0,20"
+                       IndicatorColor="Black"
+                       SelectedIndicatorColor="Blue"
+                       HorizontalOptions="Center"/>
+    </StackLayout>
+</ContentPage>

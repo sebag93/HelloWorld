@@ -23,7 +23,8 @@ namespace HelloWorld.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Forms.SetFlags("SwipeView_Experimental");
+            Forms.SetFlags("IndicatorView_Experimental");
+            //Forms.SetFlags("SwipeView_Experimental");
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 

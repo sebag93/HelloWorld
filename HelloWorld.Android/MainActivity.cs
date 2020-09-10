@@ -18,7 +18,9 @@ namespace HelloWorld.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            Forms.SetFlags("SwipeView_Experimental");
+            Forms.SetFlags("IndicatorView_Experimental");
+
+            //Forms.SetFlags("SwipeView_Experimental");
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
 
