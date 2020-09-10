@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HelloWorld.Views.ListViewPage">
+             x:Class="HelloWorld.Views.ListViewPage"
+             NavigationPage.HasNavigationBar="False">
     <ListView x:Name="CarListView" 
               HasUnevenRows="True"
               ItemSelected="CarListView_ItemSelected"
