@@ -24,6 +24,19 @@ namespace HelloWorld.Views
             
         }
 
+        public SuvPage()
+        {
+            InitializeComponent();
+
+            Cars = new ObservableCollection<Car>()
+            {
+                new Car{ Name = "Ford Kuga", Year = 2018, Color="czerwony", Type = CarType.SUV, Price=80000 },
+                    new Car{ Name = "BMW X5", Year = 2020, Color="czarny", Type = CarType.SUV, Price=120000 },
+            };
+
+            CarListView.ItemsSource = Cars;
+        }
+
         private void CarListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var car = e.SelectedItem as Car;

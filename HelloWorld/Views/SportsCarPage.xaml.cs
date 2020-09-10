@@ -24,6 +24,20 @@ namespace HelloWorld.Views
             
         }
 
+        public SportsCarPage()
+        {
+            InitializeComponent();
+
+            Cars = new ObservableCollection<Car>()
+            {
+                new Car{ Name = "Ferrari California", Year = 2015, Color="czerwony", Type = CarType.Sport, Price=600000 },
+                new Car{ Name = "Lamborghini Gallardo", Year = 2006, Color="niebieski", Type = CarType.Sport, Price=700000 },
+                new Car{ Name = "Maserati granturismo s coupe", Year = 2019, Color="czarny", Type = CarType.Sport, Price=350000 }
+            };
+
+            CarListView.ItemsSource = Cars;
+        }
+
         private void CarListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var car = e.SelectedItem as Car;

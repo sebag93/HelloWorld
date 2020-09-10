@@ -69,14 +69,14 @@ namespace HelloWorld.Views
 
         private void MenuItem_Clicked(object sender, EventArgs e)
         {
-            var menuItem = sender as MenuItem;
+            var menuItem = sender as Xamarin.Forms.MenuItem;
             var car = menuItem.CommandParameter as Car;
             DisplayAlert("Details from context action", car.Name, "Ok");
         }
 
         private void MenuItem_Clicked_1(object sender, EventArgs e)
         {
-            var menuItem = sender as MenuItem;
+            var menuItem = sender as Xamarin.Forms.MenuItem;
             var car = menuItem.CommandParameter as Car;
 
             foreach (var carGroup in carList)
