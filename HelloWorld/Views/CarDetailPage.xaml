@@ -27,5 +27,17 @@
                    HorizontalOptions="StartAndExpand"/>
             <Label Text="{Binding Price}"/>
         </StackLayout>
+        <Button Text="Wstecz"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked"/>
+        <Button Text="Popup 1"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked_1"/>
+        <Button Text="Popup 2"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked_2"/>
+        <Button Text="Popup 3"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked_3"/>
     </StackLayout>
 </ContentPage>

@@ -41,7 +41,8 @@ namespace HelloWorld.Views
         private void CarListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var car = e.SelectedItem as Car;
-            Navigation.PushAsync(new CarDetailPage(car));
+            //Navigation.PushAsync(new CarDetailPage(car));
+            Navigation.PushModalAsync(new CarDetailPage(car));
         }
     }
 }
