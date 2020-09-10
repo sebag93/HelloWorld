@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorld.Views.StandardCarPage"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout Margin="0,30,0,0">
+        <ListView HasUnevenRows="True" 
+                  x:Name="CarListView"
+                  ItemSelected="CarListView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     Orientation="Horizontal"
+                                     Margin="15,0,15,0">
+                            <Image HeightRequest="50"
+                                   WidthRequest="50"
+                                   Source="car_2"
+                                   Margin="5"
+                                   VerticalOptions="Center"/>
+                            <StackLayout Orientation="Vertical"
+                                     HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Name}"
+                                   FontSize="16"/>
+                                <Label Text="{Binding Year}"
+                                   FontSize="12"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

@@ -163,4 +163,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\splashScreen%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car_icon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car_icon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car_icon.png" />
+  </ItemGroup>
 </Project>
