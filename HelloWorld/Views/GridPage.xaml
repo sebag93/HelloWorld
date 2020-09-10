@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HelloWorld.Views.GridPage">
+    <Grid Padding="30"
+          RowSpacing="0"
+          ColumnSpacing="0"
+          BackgroundColor="#181818">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Who's Watching?"
+               Grid.Row="0"
+               Grid.ColumnSpan="2"
+               TextColor="White"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalTextAlignment="Center"/>
+
+        <StackLayout Grid.Column="0"
+                     Grid.Row="1"
+                     Margin="20,0,0,0">
+            <BoxView HeightRequest="100"
+                     WidthRequest="100"
+                     VerticalOptions="Center"
+                     HorizontalOptions="CenterAndExpand"
+                     Margin="0"
+                     BackgroundColor="#86A73E"/>
+            <Label Text="User 1"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout Grid.Column="1"
+                     Grid.Row="1"
+                     Margin="0,0,20,0">
+            <BoxView HeightRequest="100"
+                     WidthRequest="100"
+                     VerticalOptions="Center"
+                     HorizontalOptions="CenterAndExpand"
+                     Margin="0"
+                     BackgroundColor="#3E4EA7"/>
+            <Label Text="User 2"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0"
+                     Grid.Row="2"
+                     Margin="20,0,0,0">
+            <BoxView HeightRequest="100"
+                     WidthRequest="100"
+                     VerticalOptions="Center"
+                     HorizontalOptions="CenterAndExpand"
+                     Margin="0"
+                     BackgroundColor="#3EA75A"/>
+            <Label Text="User 3"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout Grid.Column="1"
+                     Grid.Row="2"
+                     Margin="0,0,20,0">
+            <BoxView HeightRequest="100"
+                     WidthRequest="100"
+                     VerticalOptions="Center"
+                     HorizontalOptions="CenterAndExpand"
+                     Margin="0"
+                     BackgroundColor="#A73E8B"/>
+            <Label Text="User 4"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <BoxView Grid.Row="3"
+                 Grid.Column="0"
+                 HeightRequest="80"
+                 WidthRequest="80"
+                 Margin="20,0,0,0"
+                 CornerRadius="40"
+                 VerticalOptions="Center"
+                 HorizontalOptions="CenterAndExpand"
+                 BackgroundColor="White"/>
+        <Label Text="+"
+               Grid.Row="3"
+               Grid.Column="0"
+               FontSize="80"
+               FontAttributes="Bold"
+               VerticalOptions="Center"
+               TextColor="Black"
+               Margin="20,-8,0,0"
+               HorizontalOptions="Center"/>
+
+        <Label Text="Add profile"
+               Grid.Row="3"
+               Grid.Column="0"
+               TextColor="White"
+               VerticalOptions="End"
+               Margin="20,0,0,0"
+               HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HelloWorld.Views.StackLayoutPage">
+    <!--<StackLayout Margin="30">
+        <Label Text="Hello World"
+               HorizontalOptions="Center"
+               FontSize="Large"
+               FontAttributes="Bold"
+               Margin="0,30,0,100"/>
+        <Label Text="Login"
+               FontSize="12"
+               FontAttributes="Bold"/>
+        <Entry Placeholder="Login"
+               Keyboard="Text"
+               HorizontalTextAlignment="Center"/>
+        <Label Text="Hasło"
+               FontSize="12"
+               FontAttributes="Bold"/>
+        <Entry Placeholder="Hasło"
+               IsPassword="True"
+               Keyboard="Text"
+               HorizontalTextAlignment="Center"/>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Spacing="20">
+            <Button Text="Zaloguj"
+                    WidthRequest="150"
+                    BackgroundColor="LightBlue"
+                    CornerRadius="10"
+                    Clicked="Button_Clicked"/>
+            <Button Text="Utwórz konto"
+                    WidthRequest="150"
+                    CornerRadius="10"
+                    BackgroundColor="LightGray"
+                    Clicked="Button_Clicked_1"/>
+        </StackLayout>
+    </StackLayout>--> 
+</ContentPage>

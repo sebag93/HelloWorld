@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HelloWorld.Views.ListViewPage">
+    <ListView x:Name="CarListView" 
+              HasUnevenRows="True"
+              ItemSelected="CarListView_ItemSelected"
+              IsGroupingEnabled="True"
+              GroupDisplayBinding="{Binding Title}"
+              ItemTapped="CarListView_ItemTapped">
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding Title}"
+                               HorizontalOptions="StartAndExpand"/>
+                        <Button Text="Show/Hide"
+                                Clicked="Button_Clicked_1"
+                                CommandParameter="{Binding .}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout HorizontalOptions="FillAndExpand" 
+                                 Orientation="Horizontal"
+                                 Margin="15,0,15,0">
+                        <BoxView HeightRequest="50" 
+                                 WidthRequest="50" 
+                                 BackgroundColor="Black"
+                                 Margin="5" 
+                                 VerticalOptions="Center"/>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding Name}" FontSize="16" WidthRequest="100"/>
+                            <Label Text="{Binding Year}" FontSize="12"/>
+                        </StackLayout>
+                        <Button Text="Details" 
+                                WidthRequest="80" 
+                                HeightRequest="40" 
+                                Clicked="Button_Clicked"
+                                VerticalOptions="Center"/>
+                    </StackLayout>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Details" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}" />
+                        <MenuItem Text="Remove" Clicked="MenuItem_Clicked_1" CommandParameter="{Binding .}" IsDestructive="True" />
+                    </ViewCell.ContextActions>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

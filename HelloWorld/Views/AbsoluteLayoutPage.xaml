@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HelloWorld.Views.AbsoluteLayoutPage">
+    <AbsoluteLayout Margin="20">
+        <BoxView CornerRadius="20" 
+                 BackgroundColor="Gray" 
+                 AbsoluteLayout.LayoutBounds="0, 0, 1, 0.35" AbsoluteLayout.LayoutFlags="All"/>
+        <Label Text="Nazwa Banku" 
+               TextColor="White" 
+               FontSize="18"
+               AbsoluteLayout.LayoutBounds="1, 0.05, 120, 20" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Label Text="Credi Card" 
+               TextColor="White" 
+               FontSize="22"
+               AbsoluteLayout.LayoutBounds="0.1, 0.03, 120, 30" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <Label Text="1234" 
+               TextColor="White" 
+               FontSize="22"
+               AbsoluteLayout.LayoutBounds="0.1, 0.18, 50, 30" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Label Text="1234" 
+               TextColor="White" 
+               FontSize="22"
+               AbsoluteLayout.LayoutBounds="0.32, 0.18, 50, 30" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Label Text="1234" 
+               TextColor="White" 
+               FontSize="22"
+               AbsoluteLayout.LayoutBounds="0.54, 0.18, 50, 30" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Label Text="1234" 
+               TextColor="White" 
+               FontSize="22"
+               AbsoluteLayout.LayoutBounds="0.76, 0.18, 50, 30" AbsoluteLayout.LayoutFlags="XProportional, YProportional"/>
+    </AbsoluteLayout>
+</ContentPage>
