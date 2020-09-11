@@ -16,10 +16,12 @@ namespace HelloWorld.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListViewPage : ContentPage
     {
+        public CarsViewModel ViewModel { get; set; }
         public ListViewPage()
         {
+            ViewModel = new CarsViewModel(Navigation);
             InitializeComponent();
-            BindingContext = new CarsViewModel(Navigation);
+            BindingContext = ViewModel;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -27,34 +29,24 @@ namespace HelloWorld.Views
             var senderBindingContext = ((Button)sender).BindingContext;
             var car = (Car)senderBindingContext;
 
-            (BindingContext as CarsViewModel).NavigateToCarDetailPage(car);
+            ViewModel.NavigateToCarDetailPage(car);
         }
 
         private void CarListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var car = e.SelectedItem as Car;
-            (BindingContext as CarsViewModel).DisplayAlert(car.Name, "Item Selected");
+            ViewModel.SelectedCarCommand.Execute(e.SelectedItem);
         }
 
         private void CarListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var car = e.Item as Car;
-            (BindingContext as CarsViewModel).DisplayAlert(car.Name, "Item Tapped");
+            ViewModel.TappedCarCommand.Execute(e.Item);
         }
 
         private void MenuItem_Clicked(object sender, EventArgs e)
         {
             var menuItem = sender as Xamarin.Forms.MenuItem;
             var car = menuItem.CommandParameter as Car;
-            (BindingContext as CarsViewModel).DisplayAlert(car.Name, "Details from context action");
-        }
-
-        private void MenuItem_Clicked_1(object sender, EventArgs e)
-        {
-            var menuItem = sender as Xamarin.Forms.MenuItem;
-            var car = menuItem.CommandParameter as Car;
-
-            (BindingContext as CarsViewModel).RemoveCarFromCollection(car);
+            //(BindingContext as CarsViewModel).DisplayAlert(car.Name, "Details from context action");
         }
 
         private void Button_Clicked_1(object sender, EventArgs e)
@@ -63,11 +55,6 @@ namespace HelloWorld.Views
             var carGroup = button.CommandParameter as CarGroup;
 
             carGroup.ShowOrHideElements();
-        }
-
-        private void CarListView_Refreshing(object sender, EventArgs e)
-        {
-            (BindingContext as CarsViewModel).RefreshListView();
         }
     }
 }

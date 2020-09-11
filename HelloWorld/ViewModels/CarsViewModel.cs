@@ -4,19 +4,33 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace HelloWorld.ViewModels
 {
-    class CarsViewModel
+    public class CarsViewModel
     {
         public ObservableCollection<CarGroup> CarList { get; private set; }
         public bool IsRefreshing { get; set; }
+
+        public ICommand RefreshCarListCommand { get; private set; }
+        public ICommand RemoveCarCommand { get; private set; }
+        public ICommand TappedCarCommand { get; private set; }
+        public ICommand SelectedCarCommand { get; private set; }
+
         private INavigation _navigation;
 
         public CarsViewModel(INavigation navigation)
         {
             _navigation = navigation;
+
+            RefreshCarListCommand = new Command(() => RefreshListView());
+
+            RemoveCarCommand = new Command<Car>(car => RemoveCarFromCollection(car));
+            TappedCarCommand = new Command<Car>(car => TappedItem(car));
+            SelectedCarCommand = new Command<Car>(car => SelectedItem(car));
+
             CarList = new ObservableCollection<CarGroup>
             {
                 new CarGroup("Samochody sportowe", new List<Car>
@@ -43,12 +57,17 @@ namespace HelloWorld.ViewModels
             _navigation.PushAsync(new CarDetailPage(car));
         }
 
-        public void DisplayAlert(string message, string title)
+        private void TappedItem(Car car)
         {
-            App.Current.MainPage.DisplayAlert(title, message, "Ok");
+            App.Current.MainPage.DisplayAlert("Tapped item", car.Name, "Ok");
         }
 
-        public void RemoveCarFromCollection(Car car)
+        private void SelectedItem(Car car)
+        {
+            App.Current.MainPage.DisplayAlert("Selected item", car.Name, "Ok");
+        }
+
+        private void RemoveCarFromCollection(Car car)
         {
             foreach (var carGroup in CarList)
             {
@@ -59,7 +78,7 @@ namespace HelloWorld.ViewModels
             }
         }
 
-        public void RefreshListView()
+        private void RefreshListView()
         {
             var carList = new List<Car>
             {

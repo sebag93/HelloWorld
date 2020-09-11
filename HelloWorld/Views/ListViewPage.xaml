@@ -5,10 +5,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HelloWorld.Views.ListViewPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             x:Name="CarListViewPage">
     <ListView HasUnevenRows="True"
               IsPullToRefreshEnabled="True"
-              Refreshing="CarListView_Refreshing"
+              RefreshCommand="{Binding RefreshCarListCommand}"
               ItemsSource="{Binding CarList}"
               IsRefreshing="{Binding IsRefreshing}"
               ItemSelected="CarListView_ItemSelected"
@@ -52,7 +53,9 @@
                     </StackLayout>
                     <ViewCell.ContextActions>
                         <MenuItem Text="Details" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}" />
-                        <MenuItem Text="Remove" Clicked="MenuItem_Clicked_1" CommandParameter="{Binding .}" IsDestructive="True" />
+                        <MenuItem Text="Remove"
+                                  Command="{Binding Source={x:Reference CarListViewPage},Path=BindingContext.RemoveCarCommand}" 
+                                  CommandParameter="{Binding .}" IsDestructive="True" />
                     </ViewCell.ContextActions>
                 </ViewCell>
             </DataTemplate>
