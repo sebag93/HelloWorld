@@ -9,10 +9,16 @@ using Xamarin.Forms;
 
 namespace HelloWorld.ViewModels
 {
-    public class CarsViewModel
+    public class CarsViewModel : BaseViewModel
     {
         public ObservableCollection<CarGroup> CarList { get; private set; }
-        public bool IsRefreshing { get; set; }
+        private bool isRefreshing;
+
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set { SetValue(ref isRefreshing, value); }
+        }
 
         public ICommand RefreshCarListCommand { get; private set; }
         public ICommand RemoveCarCommand { get; private set; }
@@ -80,6 +86,7 @@ namespace HelloWorld.ViewModels
 
         private void RefreshListView()
         {
+            IsRefreshing = true;
             var carList = new List<Car>
             {
                 new Car()
@@ -96,6 +103,7 @@ namespace HelloWorld.ViewModels
 
             var carGroup = new CarGroup("Samochody terenowe", carList);
             CarList.Add(carGroup);
+            IsRefreshing = false;
         }
     }
 }
