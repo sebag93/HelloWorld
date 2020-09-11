@@ -19,7 +19,7 @@ namespace HelloWorld
             //masterPage.Detail = new NavigationPage((Page)Activator.CreateInstance(MenuPages[0].PageType));
             //MainPage = new NavigationPage(new CarouselNavigationPage());
             //MainPage = new CarouselViewPage();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new ListViewPage());
         }
 
         private void SetMenuItem()

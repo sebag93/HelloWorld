@@ -6,8 +6,11 @@
              mc:Ignorable="d"
              x:Class="HelloWorld.Views.ListViewPage"
              NavigationPage.HasNavigationBar="False">
-    <ListView x:Name="CarListView" 
-              HasUnevenRows="True"
+    <ListView HasUnevenRows="True"
+              IsPullToRefreshEnabled="True"
+              Refreshing="CarListView_Refreshing"
+              ItemsSource="{Binding CarList}"
+              IsRefreshing="{Binding IsRefreshing}"
               ItemSelected="CarListView_ItemSelected"
               IsGroupingEnabled="True"
               GroupDisplayBinding="{Binding Title}"
