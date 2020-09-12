@@ -1,10 +1,12 @@
 ﻿using HelloWorld.Models;
+using HelloWorld.Persistance;
 using HelloWorld.Services;
 using HelloWorld.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -41,24 +43,13 @@ namespace HelloWorld.ViewModels
             TappedCarCommand = new Command<Car>(car => TappedItem(car));
             SelectedCarCommand = new Command<Car>(car => SelectedItem(car));
 
+            var carsFromDatabase = DatabaseManager.Instance.GetALL<Car>();
+
             CarList = new ObservableCollection<CarGroup>
             {
-                new CarGroup("Samochody sportowe", new List<Car>
-                {
-                    new Car{ Name = "Ferrari California", Year = 2015, Color="czerwony", Type = CarType.Sport, Price=600000 },
-                    new Car{ Name = "Lamborghini Gallardo", Year = 2006, Color="niebieski", Type = CarType.Sport, Price=700000 },
-                    new Car{ Name = "Maserati granturismo s coupe", Year = 2019, Color="czarny", Type = CarType.Sport, Price=350000 }
-                }),
-                new CarGroup("Samochody osobowe", new List<Car>
-                {
-                    new Car{ Name = "Audi A4", Year = 2010, Color="czerwony", Type = CarType.Sedan, Price=40000 },
-                    new Car{ Name = "Mercedes CLA", Year = 2012, Color="biały", Type = CarType.Sedan, Price=60000 }
-                }),
-                new CarGroup("SUV", new List<Car>
-                {
-                    new Car{ Name = "Ford Kuga", Year = 2018, Color="czerwony", Type = CarType.SUV, Price=80000 },
-                    new Car{ Name = "BMW X5", Year = 2020, Color="czarny", Type = CarType.SUV, Price=120000 },
-                })
+                new CarGroup("Samochody sportowe", carsFromDatabase.Where(c => c.Type == CarType.Sport).ToList()),
+                new CarGroup("Samochody osobowe", carsFromDatabase.Where(c => c.Type == CarType.Sedan).ToList()),
+                new CarGroup("SUV", carsFromDatabase.Where(c => c.Type == CarType.SUV).ToList())
             };
         }
 
