@@ -1,10 +1,14 @@
 ﻿using HelloWorld.Models;
+using HelloWorld.Services;
 using HelloWorld.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HelloWorld.ViewModels
@@ -68,9 +72,18 @@ namespace HelloWorld.ViewModels
             App.Current.MainPage.DisplayAlert("Tapped item", car.Name, "Ok");
         }
 
-        private void SelectedItem(Car car)
+        private async Task SelectedItem(Car car)
         {
-            App.Current.MainPage.DisplayAlert("Selected item", car.Name, "Ok");
+            //App.Current.MainPage.DisplayAlert("Selected item", car.Name, "Ok");
+            //var fileService = DependencyService.Get<IFileService>();
+            //fileService.WriteTextAsync(car.Name, $"To jest samochód: {car.Name} w kolorze {car.Color}");
+            using (var stream = await FileSystem.OpenAppPackageFileAsync(car.Name))
+            {
+                using (var writer = new StreamWriter(stream))
+                {
+                    await writer.WriteAsync($"To jest samochód: {car.Name} w kolorze {car.Color}");
+                }
+            }
         }
 
         private void RemoveCarFromCollection(Car car)
