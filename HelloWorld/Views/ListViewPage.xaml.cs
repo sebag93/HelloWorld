@@ -22,6 +22,7 @@ namespace HelloWorld.Views
             ViewModel = new CarsViewModel(Navigation);
             InitializeComponent();
             BindingContext = ViewModel;
+
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -29,7 +30,7 @@ namespace HelloWorld.Views
             var senderBindingContext = ((Button)sender).BindingContext;
             var car = (Car)senderBindingContext;
 
-            ViewModel.NavigateToCarDetailPage(car);
+            ViewModel.NavigateToCarDeatilPage(car);
         }
 
         private void CarListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -46,6 +47,7 @@ namespace HelloWorld.Views
         {
             var menuItem = sender as Xamarin.Forms.MenuItem;
             var car = menuItem.CommandParameter as Car;
+
             //(BindingContext as CarsViewModel).DisplayAlert(car.Name, "Details from context action");
         }
 
